@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator Modern Lengkap</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calculator {
+    width: 350px;
+    background: #ffffffdd;
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  #display {
+    width: 100%;
+    height: 60px;
+    background: #f7f7f7;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    margin-bottom: 15px;
+    font-size: 28px;
+    text-align: right;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-weight: bold;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  button {
+    padding: 18px;
+    font-size: 20px;
+    border: none;
+    border-radius: 12px;
+    background: #66a6ff;
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background: #5594e6;
+    transform: scale(1.07);
+  }
+
+  .operator {
+    background: #ff9e3d;
+  }
+
+  .operator:hover {
+    background: #e68d36;
+  }
+
+  .clear {
+    background: #ff4b4b;
+  }
+
+  .clear:hover {
+    background: #e04343;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+  <h2>Kalkulator Modern</h2>
+
+  <div id="display">0</div>
+
+  <div class="buttons">
+    <button class="clear" onclick="clearDisplay()">C</button>
+    <button onclick="deleteLast()">←</button>
+    <button class="operator" onclick="addSymbol('%')">%</button>
+    <button class="operator" onclick="addSymbol('/')">/</button>
+
+    <button onclick="addSymbol('7')">7</button>
+    <button onclick="addSymbol('8')">8</button>
+    <button onclick="addSymbol('9')">9</button>
+    <button class="operator" onclick="addSymbol('*')">×</button>
+
+    <button onclick="addSymbol('4')">4</button>
+    <button onclick="addSymbol('5')">5</button>
+    <button onclick="addSymbol('6')">6</button>
+    <button class="operator" onclick="addSymbol('-')">−</button>
+
+    <button onclick="addSymbol('1')">1</button>
+    <button onclick="addSymbol('2')">2</button>
+    <button onclick="addSymbol('3')">3</button>
+    <button class="operator" onclick="addSymbol('+')">+</button>
+
+    <button onclick="addSymbol('0')">0</button>
+    <button onclick="addSymbol('.')">.</button>
+    <button class="operator" style="grid-column: span 2;" onclick="calculate()">=</button>
+  </div>
+</div>
+
+<script>
+let display = document.getElementById("display");
+
+function addSymbol(symbol) {
+  if (display.innerHTML === "0") {
+    display.innerHTML = symbol;
+  } else {
+    display.innerHTML += symbol;
+  }
+}
+
+function clearDisplay() {
+  display.innerHTML = "0";
+}
+
+function deleteLast() {
+  display.innerHTML = display.innerHTML.slice(0, -1);
+  if (display.innerHTML === "") display.innerHTML = "0";
+}
+
+function calculate() {
+  try {
+    display.innerHTML = eval(display.innerHTML);
+  } catch {
+    display.innerHTML = "Error";
+  }
+}
+</script>
+
+</body>
+</html>

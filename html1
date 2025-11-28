@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>website pertama saya</title>
+</head>
+<body>
+    <h1p>WEBSITE PERTAMA JOSI SEPRIANTY </p>
+</body>
+</html>
+
+ <body>
+    <h1>list</h1>
+    <h2>Daftar Belanja</h2>
+    <ul>
+        <li>binder</li>
+        <li>pulpen</li>
+        <li>timX</li>
+    </ul>
+</body>

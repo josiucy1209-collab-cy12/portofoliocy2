@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator Sederhana</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .calculator {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 300px;
+  }
+  input {
+    width: 120px;
+    padding: 8px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: 0.3s;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  h1 {
+    color: #333;
+  }
+  #hasil {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+  <h1>Kalkulator Sederhana</h1>
+  <input type="number" id="x" placeholder="Angka 1">
+  <input type="number" id="y" placeholder="Angka 2"><br>
+
+  <button onclick="hitung('+')">+</button>
+  <button onclick="hitung('-')">-</button>
+  <button onclick="hitung('*')">*</button>
+  <button onclick="hitung('%')">%</button>
+
+  <p id="hasil">Hasil: </p>
+</div>
+
+<script>
+function hitung(operator) {
+  let x = parseFloat(document.getElementById("x").value);
+  let y = parseFloat(document.getElementById("y").value);
+  let hasil;
+
+  if (isNaN(x) || isNaN(y)) {
+    document.getElementById("hasil").innerHTML = "Masukkan angka yang valid!";
+    return;
+  }
+
+  switch (operator) {
+    case '+':
+      hasil = x + y;
+      break;
+    case '-':
+      hasil = x - y;
+      break;
+    case '*':
+      hasil = x * y;
+      break;
+    case '%':
+      hasil = x % y;
+      break;
+  }
+
+  document.getElementById("hasil").innerHTML = x + " " + operator + " " + y + " = " + hasil;
+}
+</script>
+
+</body>
+</html>

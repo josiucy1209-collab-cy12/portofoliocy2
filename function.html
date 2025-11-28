@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+    <TITLE>Memasukkan Bilangan</TITLE>
+</HEAD>
+<BODY>
+<SCRIPT language="JavaScript">
+function hitung(operasi) {
+    var bil1 = parseFloat(document.fform.bilangan1.value);
+    if (isNaN(bil1)) bil1 = 0.0;
+
+    var bil2 = parseFloat(document.fform.bilangan2.value);
+    if (isNaN(bil2)) bil2 = 0.0;
+
+    var hasil = 0;
+
+    if (operasi == '+') hasil = bil1 + bil2;
+    if (operasi == '-') hasil = bil1 - bil2;
+    if (operasi == 'x') hasil = bil1 * bil2;
+    if (operasi == ':') {
+        if (bil2 == 0) {
+            alert("Error: Pembagian dengan 0!");
+            return;
+        }
+        hasil = bil1 / bil2;
+    }
+
+    alert("Hasil = " + hasil);
+}
+</SCRIPT>
+
+<FORM NAME="fform">
+<H1><BR>Memasukkan Data Lewat Keyboard</H1>
+<PRE>
+Bilangan Pertama : <input type="text" size="11" name="bilangan1">
+Bilangan Kedua    : <input type="text" size="11" name="bilangan2">
+</PRE>
+
+<p>
+
+<INPUT TYPE="button" value=" + " onclick="hitung('+')">
+<INPUT TYPE="button" value=" - " onclick="hitung('-')">
+<INPUT TYPE="button" value=" X " onclick="hitung('x')">
+<INPUT TYPE="button" value=" : " onclick="hitung(':')">
+<INPUT TYPE="reset" value="Ulang">
+</p>
+
+</FORM>
+</BODY>
+</HTML>

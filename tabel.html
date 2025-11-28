@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Form HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea, select, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formulir Pendaftaran</h2>
+    <form id="formPendaftaran" onsubmit="tampilkanData(event)">
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Masukkan email aktif Anda" required>
+
+        <label for="alamat">Alamat:</label>
+        <textarea id="alamat" name="alamat" rows="4" placeholder="Masukkan alamat lengkap Anda"></textarea>
+
+        <label for="jurusan">Jurusan:</label>
+        <select id="jurusan" name="jurusan" required>
+            <option value="">-- Pilih Jurusan --</option>
+            <option value="Teknik Informatika">Teknik Informatika</option>
+            <option value="Teknik Sipil">Teknik Sipil</option>
+            <option value="Akuntansi">Akuntansi</option>
+            <option value="Manajemen">Manajemen</option>
+        </select>
+
+        <button type="submit">Kirimkan Data</button>
+    </form>
+
+    <div id="hasil" style="margin-top: 30px; background: #fff; padding: 20px; border-radius: 10px; display: none;">
+        <h3>Data yang Anda Masukkan:</h3>
+        <p><b>Nama:</b> <span id="outNama"></span></p>
+        <p><b>Email:</b> <span id="outEmail"></span></p>
+        <p><b>Alamat:</b> <span id="outAlamat"></span></p>
+        <p><b>Jurusan:</b> <span id="outJurusan"></span></p>
+    </div>
+
+    <script>
+        function tampilkanData(event) {
+            event.preventDefault(); 
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const alamat = document.getElementById('alamat').value;
+            const jurusan = document.getElementById('jurusan').value;
+
+            document.getElementById('outNama').textContent = nama;
+            document.getElementById('outEmail').textContent = email;
+            document.getElementById('outAlamat').textContent = alamat;
+            document.getElementById('outJurusan').textContent = jurusan;
+            document.getElementById('hasil').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Tabel Mahasiswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 10px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        th, td {
+            border: 1px solid #999;
+            text-align: center;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e6ffe6;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Daftar Data maasyarakat</h2>
+
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Tanggal Lahir</th>
+            <th>Jenis Kelamin</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>yurizal ardiansyah</td>
+            <td>08 mai 2000</td>
+            <td>Laki-Laki</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>josi seprianty</td>
+            <td>12 september 2004</td>
+            <td>Perempuan</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>susry rahayu pertama sari</td>
+            <td>11 january 1997</td>
+            <td>perempuan</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>rini anjar wati</td>
+            <td>13 november 1997</td>
+            <td>Perempuan</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>wiwil afriadi</td>
+            <td>07 april 2000</td>
+            <td>laki laki </td>
+        </tr>
+    </table>
+
+</body>
+</html>

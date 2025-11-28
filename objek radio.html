@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Latihan Dengan Objek Radio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #cccccc;
+            padding: 15px;
+            width: 320px;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        h1 {
+            font-size: 18px;
+        }
+        .radio-group {
+            margin: 10px 0;
+        }
+        input[type="button"], input[type="reset"] {
+            padding: 6px 12px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<script language="JavaScript">
+function radio_box(form) {
+    var ket = "";
+
+    if (form.gender.value == "wanita") {
+        ket = "Wanita";
+    } else if (form.gender.value == "pria") {
+        ket = "Pria";
+    } else {
+        alert("Silakan pilih jenis kelamin terlebih dahulu!");
+        return;
+    }
+
+    alert("Anda adalah seorang " + ket);
+}
+</script>
+
+<div class="container">
+    <h1>Memasukkan Data Dengan Objek Radio</h1>
+    <hr>
+
+    <form>
+        <div class="radio-group">
+            <p>
+                <input type="radio" name="gender" value="wanita"> Wanita
+            </p>
+            <p>
+                <input type="radio" name="gender" value="pria"> Pria
+            </p>
+        </div>
+        <hr>
+
+        <p>
+            <input type="button" value="CONFIRM" onclick="radio_box(this.form)">
+            <input type="reset" value="ulang">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

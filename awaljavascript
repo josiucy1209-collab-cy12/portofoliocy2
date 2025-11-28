@@ -1,0 +1,24 @@
+<HTML>
+<BODY>
+<SCRIPT language="JavaScript">
+<!--
+document.write("awal Pemrogramman Javascript!");
+//-->
+</SCRIPT>
+</BODY>
+</HTML>
+
+<HTML>
+<BODY>
+<B>Bagian Pertama ini ditulis dengan HTML!</B>
+<P>
+<SCRIPT language="JavaScript">
+<!--
+document.write("Bagian ini ditulis dengan Javascript!");
+//-->
+</SCRIPT>
+<P>
+<B>Bagian Terakhir dari dokumen HTML, ditulis setelah Script!</B>
+</BODY>
+</HTML>
+

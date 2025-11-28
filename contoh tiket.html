@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>Percabangan IF-ELSE 2 -  Travel</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #f2f2f2;
+        }
+        table {
+            background: white;
+            padding: 15px;
+        }
+        input[type="text"], select {
+            padding: 5px;
+            width: 180px;
+        }
+        .out {
+            background: #eaeaea;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+function formatRupiah(angka) {
+    return "Rp " + angka.toLocaleString("id-ID");
+}
+
+function hitungtotal() {
+    var nama = document.fform.inama.value;
+    var tujuan = document.fform.itujuan.value;
+    var jumlahtiket = parseFloat(document.fform.ijumlah.value);
+
+    if (isNaN(jumlahtiket) || jumlahtiket <= 0) {
+        alert("Jumlah tiket harus berupa angka dan lebih dari 0!");
+        return;
+    }
+
+    var ht = 0;
+    if (tujuan == "Jakarta") ht = 100000;
+    else if (tujuan == "Cirebon") ht = 150000;
+    else ht = 200000;
+
+    var sub = jumlahtiket * ht;
+    var diskon = document.fform.imember.checked ? 0.1 * sub : 0;
+    var total = sub - diskon;
+
+    document.fform.otiket.value = formatRupiah(ht);
+    document.fform.osub.value = formatRupiah(sub);
+    document.fform.odiskon.value = formatRupiah(diskon);
+    document.fform.ototal.value = formatRupiah(total);
+}
+</script>
+
+<form name="fform">
+<table border="1" width="70%" align="center">
+    <tr>
+        <td colspan="2" align="center">
+            <h2>Travel Bintang Abadi (cahaya)</h2>
+        </td>
+    </tr>
+
+    <tr>
+        <td width="50%">
+            Nama:<br>
+            <input type="text" name="inama"><br><br>
+
+            Tujuan:<br>
+            <select name="itujuan">
+                <option value="Jakarta">Jakarta</option>
+                <option value="Cirebon">Cirebon</option>
+                <option value="Tasikmalaya">Tasikmalaya</option>
+            </select><br><br>
+
+            Jumlah Tiket:<br>
+            <input type="text" name="ijumlah"><br><br>
+
+            Member:
+            <input type="checkbox" name="imember"> Ya
+        </td>
+
+        <td width="50%">
+            Harga Tiket:<br>
+            <input class="out" type="text" name="otiket" readonly><br><br>
+
+            Sub Total:<br>
+            <input class="out" type="text" name="osub" readonly><br><br>
+
+            Diskon:<br>
+            <input class="out" type="text" name="odiskon" readonly><br><br>
+
+            Total Bayar:<br>
+            <input class="out" type="text" name="ototal" readonly>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+            <input type="button" value="Hitung" onclick="hitungtotal()">
+            <input type="reset" value="Ulang">
+        </td>
+    </tr>
+</table>
+</form>
+
+</body>
+</html>

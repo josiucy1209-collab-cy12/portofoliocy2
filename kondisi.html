@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cek Kelulusan</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .box {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  input {
+    padding: 8px;
+    width: 100px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  #hasil {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Cek Kelulusan</h2>
+  <p>Masukkan Nilai Anda:</p>
+  <input type="number" id="nilai" placeholder="0 - 100">
+  <br>
+  <button onclick="cekNilai()">Cek</button>
+  <p id="hasil"></p>
+</div>
+
+<script>
+function cekNilai() {
+  let nilai = parseFloat(document.getElementById("nilai").value);
+  let hasil;
+
+  if (isNaN(nilai)) {
+    hasil = "Masukkan angka yang valid!";
+  } else if (nilai < 75) {
+    hasil = "❌ Tidak Lulus (Nilai Anda " + nilai + ")";
+  } else if (nilai >= 76) {
+    hasil = "✅ Lulus (Nilai Anda " + nilai + ")";
+  } else {
+    hasil = "⚠️ Nilai 75 belum termasuk lulus atau tidak (batas ambang).";
+  }
+
+  document.getElementById("hasil").innerHTML = hasil;
+}
+</script>
+
+</body>
+</html>
